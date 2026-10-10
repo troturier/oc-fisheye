@@ -4,6 +4,42 @@ Historique daté, plus récent en haut.
 
 ---
 
+## 2026-10-10 – HTML pour validation AChecker et publication sur GitHub
+
+**Fait**
+- **HTML des pages** généré dans `validation-html/` (non versionné) : accueil, page photographe, page photographe avec la
+  modale de contact ouverte, avec la lightbox ouverte, et page 404. Chaque fichier est autonome (CSS intégrée) et prêt à coller
+  dans l'onglet « Paste HTML » d'AChecker.
+- **Dépôt GitHub public** : https://github.com/troturier/oc-fisheye (branche `main`, 1 commit).
+- Clone neuf testé en suivant le README : migration, seed (6 photographes, 59 médias), lint et build passent.
+
+**Problèmes rencontrés**
+- Le HTML renvoyé par le serveur est découpé en blocs de streaming (`<template>`, `<div hidden>`) : inutilisable
+  tel quel dans un validateur, le contenu n'y est pas à sa place finale.
+- La règle `.env*` du `.gitignore` masquait aussi `.env.example`, pourtant nécessaire au README.
+- Aucune identité git n'était configurée sur la machine.
+
+**Raisonnement**
+- HTML récupéré depuis le **DOM final du navigateur** (après affichage), via un récepteur local temporaire
+  (`127.0.0.1`, rien d'envoyé à l'extérieur), puis nettoyé : scripts, marqueurs de streaming et préchargements retirés,
+  feuilles de style intégrées pour que AChecker évalue aussi les contrastes. Balises vérifiées équilibrées.
+- Les états « modale ouverte » et « lightbox ouverte » sont fournis à part : AChecker lit du HTML statique et ne
+  verrait pas le contenu des modales fermées.
+- Nom `oc-fisheye` et visibilité publique : cohérent avec les autres projets OpenClassrooms du compte, et la fiche
+  d'auto-évaluation exige un code public.
+- Commits signés avec l'adresse `noreply` GitHub plutôt que l'adresse personnelle, le dépôt étant public.
+- Exception `!.env.example` ajoutée au `.gitignore` ; `.env` et `dev.db` restent exclus.
+- `resources/` (briefing, notes de réunion, fiche d'auto-évaluation) exclu du dépôt : documents de cours, pas du livrable.
+- Contrôle avant publication : aucun secret détecté, aucun fichier de plus de 11 Mo.
+
+**Reste à faire**
+1. Coller les 5 fichiers de `validation-html/` dans AChecker et corriger ce qu'il remonte.
+2. Test avec un lecteur d'écran.
+3. Décision sur le sous-titrage des 4 vidéos avec audio.
+4. Remplir la fiche d'auto-évaluation PDF.
+
+---
+
 ## 2026-10-10 – Audit d'accessibilité automatisé (étape 7) et bilan avant livraison
 
 **Fait**

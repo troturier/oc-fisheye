@@ -1,0 +1,21 @@
+.title {
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--color-primary);
+}
+
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 108px 100px 96px;
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .main {
+    padding: 48px 24px 96px;
+  }
+}

@@ -1,0 +1,55 @@
+.gallery {
+  margin-top: 9px;
+}
+
+.error {
+  margin: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 95px;
+  margin-top: 40px;
+}
+
+/* Encart fixe en bas de page */
+.summary {
+  position: fixed;
+  right: 36px;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  gap: 80px;
+  padding: 18px 32px;
+  font-size: 24px;
+  color: var(--color-text);
+  background: var(--color-secondary);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    right: 12px;
+    gap: 32px;
+  }
+}

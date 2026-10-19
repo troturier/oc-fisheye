@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Picture from "./Picture";
 import styles from "./PhotographerCard.module.css";
 
 export default function PhotographerCard({ photographer, priority = false }) {
@@ -9,9 +9,11 @@ export default function PhotographerCard({ photographer, priority = false }) {
     <article className={styles.card}>
       {/* Le lien englobe le portrait et le nom ; l'image est décorative (alt vide) car le nom est déjà dans le lien */}
       <Link href={`/photographers/${id}`} className={styles.link}>
-        <Image
-          src={`/${portrait}`}
+        <Picture
+          file={portrait}
           alt=""
+          widths={[200, 400]}
+          sizes="200px"
           width={200}
           height={200}
           priority={priority}

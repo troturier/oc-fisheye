@@ -5,6 +5,10 @@
 }
 
 .fullImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
 }
@@ -14,4 +18,10 @@
   height: 100%;
   object-fit: contain;
   background: #000000;
+}
+
+/* l'image remplit son conteneur positionné (la vidéo, elle, reste dans le flux) */
+img.thumb {
+  position: absolute;
+  inset: 0;
 }

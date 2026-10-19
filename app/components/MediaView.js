@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Picture from "./Picture";
 import styles from "./MediaView.module.css";
 
 /**
@@ -7,15 +7,17 @@ import styles from "./MediaView.module.css";
  */
 export default function MediaView({ media, variant = "thumb", priority = false }) {
   const { title, image, video } = media;
+  const poster = (file) => `/media/${file.replace(/\.[^.]+$/, "")}-poster.webp`;
 
   if (video) {
     if (variant === "thumb") {
-      // #t=0.1 : le navigateur affiche une image de la vidéo comme miniature, sans lecture
+      // poster pré-généré (npm run media) : aucune vidéo n'est téléchargée avant la lecture
       return (
         <video
           className={styles.thumb}
-          src={`/${video}#t=0.1`}
-          preload="metadata"
+          src={`/${video}`}
+          poster={poster(video)}
+          preload="none"
           muted
           playsInline
           tabIndex={-1}
@@ -28,6 +30,8 @@ export default function MediaView({ media, variant = "thumb", priority = false }
       <video
         className={styles.fullVideo}
         src={`/${video}`}
+        poster={poster(video)}
+        preload="none"
         controls
         playsInline
         aria-label={title}
@@ -36,11 +40,11 @@ export default function MediaView({ media, variant = "thumb", priority = false }
   }
 
   return (
-    <Image
-      src={`/${image}`}
+    <Picture
+      file={image}
       alt={title}
-      fill
       priority={priority}
+      widths={variant === "thumb" ? [400, 800] : [800, 1600]}
       sizes={variant === "thumb" ? "(max-width: 900px) 50vw, 350px" : "90vw"}
       className={variant === "thumb" ? styles.thumb : styles.fullImage}
     />

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Picture from "./Picture";
 import ContactModal from "./ContactModal";
 import styles from "./PhotographerBanner.module.css";
 
@@ -20,9 +20,11 @@ export default function PhotographerBanner({ photographer }) {
       <div className={styles.contact}>
         <ContactModal photographerName={name} />
       </div>
-      <Image
-        src={`/${portrait}`}
+      <Picture
+        file={portrait}
         alt={name}
+        widths={[200, 400]}
+        sizes="200px"
         width={200}
         height={200}
         priority

@@ -50,3 +50,11 @@ next-env.d.ts
 # Documents de cours (briefing, notes de réunion) et fichiers de validation générés : hors livrable
 /resources/
 /validation-html/
+
+# AI working files (never versioned)
+/AGENTS.md
+/JOURNAL.md
+/CLAUDE.md
+/ETAT.md
+/PLAN.md
+/.claude/

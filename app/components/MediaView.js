@@ -7,6 +7,7 @@ import styles from "./MediaView.module.css";
  */
 export default function MediaView({ media, variant = "thumb", priority = false }) {
   const { title, image, video } = media;
+  // Chemin de l'image d'aperçu d'une vidéo (générée par npm run media)
   const poster = (file) => `/media/${file.replace(/\.[^.]+$/, "")}-poster.webp`;
 
   if (video) {

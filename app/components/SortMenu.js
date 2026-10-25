@@ -17,6 +17,7 @@ export default function SortMenu({ options, value, onChange }) {
   const buttonRef = useRef(null);
   const listRef = useRef(null);
   const baseId = useId();
+  // Identifiants dérivés de useId pour relier libellé, bouton et options via ARIA
   const labelId = `${baseId}-label`;
   const buttonId = `${baseId}-button`;
   const optionId = (index) => `${baseId}-option-${index}`;

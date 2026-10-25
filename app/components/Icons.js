@@ -1,5 +1,6 @@
 // Icônes décoratives : le nom accessible est porté par le bouton qui les contient
 
+// Cœur plein (like)
 export function HeartIcon({ size = 20 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
@@ -30,6 +31,7 @@ export function ChevronIcon({ direction = "right", size = 24 }) {
   );
 }
 
+// Croix de fermeture
 export function CloseIcon({ size = 40 }) {
   return (
     <svg

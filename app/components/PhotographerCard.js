@@ -2,6 +2,7 @@ import Link from "next/link";
 import Picture from "./Picture";
 import styles from "./PhotographerCard.module.css";
 
+// Vignette d'un photographe sur l'accueil : portrait et nom cliquables, puis lieu, slogan et tarif
 export default function PhotographerCard({ photographer, priority = false }) {
   const { id, name, city, country, tagline, price, portrait } = photographer;
 

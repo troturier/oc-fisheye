@@ -14,24 +14,22 @@ if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;
 }
 
+// Liste de tous les photographes (page d'accueil)
 export const getAllPhotographers = () => prisma.photographer.findMany();
 
+// Un photographe par identifiant ; renvoie null s'il n'existe pas
 export const getPhotographer = (id) =>
   prisma.photographer.findUnique({
     where: { id },
   });
 
+// Tous les médias d'un photographe (le tri est fait côté client)
 export const getAllMediasForPhotographer = (photographerId) =>
   prisma.media.findMany({
     where: { photographerId },
   });
 
-export const updateNumberOfLikes = (mediaId, newNumberOfLikes) =>
-  prisma.media.update({
-    where: { id: mediaId },
-    data: { likes: newNumberOfLikes },
-  });
-
+// Ajoute un like à un média et renvoie le média mis à jour.
 // Incrémentation atomique côté base : évite de perdre des likes si plusieurs clics arrivent en même temps
 export const incrementMediaLikes = (mediaId) =>
   prisma.media.update({

@@ -4,6 +4,7 @@ import Loader from "./components/Loader";
 import PhotographerList from "./components/PhotographerList";
 import styles from "./page.module.css";
 
+// Page d'accueil : titre + liste des photographes
 export default function HomePage() {
   return (
     <>

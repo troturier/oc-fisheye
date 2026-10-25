@@ -1,6 +1,7 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
+// Police du design (DM Sans), exposée en variable CSS et servie depuis le site
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
@@ -16,6 +17,7 @@ export const metadata = {
     "FishEye présente le travail de photographes freelance et permet de les contacter.",
 };
 
+// Gabarit commun : langue du document, lien d'évitement (accessibilité clavier) puis page courante
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={dmSans.variable}>

@@ -10,6 +10,7 @@ export default function ContactModal({ photographerName }) {
   const [isOpen, setIsOpen] = useState(false);
   const titleId = useId();
 
+  // Le formulaire est validé par le navigateur (champs required) avant d'arriver ici
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
